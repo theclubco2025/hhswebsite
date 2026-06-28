@@ -32,7 +32,7 @@ const jsonLd = {
   founder: "Blake Winn",
   telephone: "+1-530-409-6503",
   priceRange: "$$",
-  areaServed: "Local Service Area",
+  areaServed: "El Dorado County, CA",
   description:
     "Professional lawn maintenance, weed whacking, tree trimming, property cleanup, and seasonal property services."
 };

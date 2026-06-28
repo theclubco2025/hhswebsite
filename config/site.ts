@@ -4,6 +4,7 @@ export const business = {
   phoneDisplay: "(530) 409-6503",
   phoneHref: "tel:+15304096503",
   brandColor: "#5B21B6",
+  serviceArea: "El Dorado County",
   services: [
     "Lawn Maintenance",
     "Weed Whacking",

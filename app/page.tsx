@@ -11,7 +11,7 @@ import StickyMobileBar from "@/components/StickyMobileBar";
 
 export default function Home() {
   return (
-    <main className="pb-16 md:pb-0">
+    <main className="pb-24 md:pb-0">
       <Nav />
       <Hero />
       <TrustSection />

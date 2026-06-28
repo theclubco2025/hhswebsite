@@ -108,10 +108,12 @@ export default function QuoteForm() {
                   Photos (optional)
                 </label>
                 <label className="flex cursor-pointer items-center gap-3 rounded-xl border border-dashed border-ink/20 bg-neutral px-4 py-3.5 text-sm text-ink/60 transition-colors hover:border-primary hover:text-primary">
-                  <ImagePlus className="h-4 w-4" />
-                  {fileNames.length > 0
-                    ? `${fileNames.length} photo${fileNames.length > 1 ? "s" : ""} selected`
-                    : "Attach photos of the property or project (up to 5, 8MB each)"}
+                  <ImagePlus className="h-4 w-4 flex-shrink-0" />
+                  <span className="leading-snug">
+                    {fileNames.length > 0
+                      ? `${fileNames.length} photo${fileNames.length > 1 ? "s" : ""} selected`
+                      : "Attach photos of the property or project (up to 5, 8MB each)"}
+                  </span>
                   <input
                     type="file"
                     name="photos"

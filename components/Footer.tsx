@@ -13,6 +13,7 @@ export default function Footer() {
           <div>
             <p className="font-heading text-2xl font-semibold text-white">{business.officialName}</p>
             <p className="mt-1 text-sm">Owned &amp; operated by {business.ownerName}</p>
+            <p className="text-sm">Proudly serving {business.serviceArea}</p>
           </div>
         </div>
         <a

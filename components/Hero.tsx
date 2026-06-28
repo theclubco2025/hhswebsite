@@ -19,21 +19,21 @@ export default function Hero() {
       {/* Smooth blend into the section below */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white to-transparent" />
 
-      <div className="relative z-10 mx-auto w-full max-w-5xl px-5 pt-24 text-center md:pt-16">
+      <div className="relative z-10 mx-auto w-full max-w-5xl px-5 pt-28 text-center sm:pt-24 md:pt-16">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-5 inline-block rounded-full border border-secondary/40 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-secondary"
+          className="mb-4 inline-block rounded-full border border-secondary/40 bg-white/5 px-4 py-1.5 text-[11px] font-medium uppercase tracking-[0.15em] text-secondary sm:mb-5 sm:text-xs sm:tracking-[0.2em]"
         >
-          Locally Owned &amp; Operated
+          Locally Owned &amp; Operated &mdash; Serving {business.serviceArea}
         </motion.p>
 
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="font-heading text-4xl font-semibold leading-tight text-white sm:text-5xl md:text-7xl"
+          className="font-heading text-[2.5rem] font-semibold leading-[1.1] text-white sm:text-5xl md:text-7xl"
         >
           Professional Property Care
           <br />
@@ -44,7 +44,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="mx-auto mt-6 max-w-2xl text-lg text-white/70 md:text-xl"
+          className="mx-auto mt-5 max-w-2xl text-base text-white/70 sm:mt-6 sm:text-lg md:text-xl"
         >
           Reliable local service for homeowners who expect quality work and exceptional care.
         </motion.p>
@@ -53,11 +53,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="mx-auto mt-8 flex max-w-2xl flex-wrap items-center justify-center gap-x-6 gap-y-3"
+          className="mx-auto mt-6 flex max-w-2xl flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:mt-8 sm:gap-x-6 sm:gap-y-3"
         >
           {checklist.map((item) => (
-            <span key={item} className="flex items-center gap-2 text-sm text-white/80">
-              <Check className="h-4 w-4 text-secondary" />
+            <span key={item} className="flex items-center gap-1.5 text-xs text-white/80 sm:gap-2 sm:text-sm">
+              <Check className="h-3.5 w-3.5 text-secondary sm:h-4 sm:w-4" />
               {item}
             </span>
           ))}
@@ -67,18 +67,18 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4 }}
-          className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+          className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4"
         >
           <a
             href="#quote"
-            className="group flex w-full items-center justify-center gap-2 rounded-full bg-purple-gradient px-8 py-4 text-base font-semibold text-white shadow-premium transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl sm:w-auto"
+            className="group flex w-full items-center justify-center gap-2 rounded-full bg-purple-gradient px-6 py-3.5 text-sm font-semibold text-white shadow-premium transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl sm:w-auto sm:px-8 sm:py-4 sm:text-base"
           >
             Get Free Quote
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
           <a
             href={business.phoneHref}
-            className="flex w-full items-center justify-center gap-2 rounded-full border border-white/25 px-8 py-4 text-base font-semibold text-white backdrop-blur transition-all duration-300 ease-out hover:bg-white/10 sm:w-auto"
+            className="flex w-full items-center justify-center gap-2 rounded-full border border-white/25 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur transition-all duration-300 ease-out hover:bg-white/10 sm:w-auto sm:px-8 sm:py-4 sm:text-base"
           >
             <Phone className="h-4 w-4" />
             Call Blake &mdash; {business.phoneDisplay}
