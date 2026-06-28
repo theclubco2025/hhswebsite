@@ -19,7 +19,7 @@ export default function Hero() {
       {/* Smooth blend into the section below */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white to-transparent" />
 
-      <div className="relative z-10 mx-auto w-full max-w-5xl px-5 pt-28 text-center sm:pt-24 md:pt-16">
+      <div className="relative z-10 mx-auto w-full max-w-5xl px-5 pt-40 text-center sm:pt-24 md:pt-16">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}

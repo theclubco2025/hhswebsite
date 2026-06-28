@@ -6,8 +6,8 @@ import { business } from "@/config/site";
 export default function StickyMobileBar() {
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-50 flex gap-2 border-t border-primary/10 bg-white/95 p-3 shadow-[0_-8px_24px_rgba(0,0,0,0.08)] backdrop-blur md:hidden"
-      style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}
+      className="fixed top-0 left-0 right-0 z-[60] flex gap-2 border-b border-primary/10 bg-white/95 p-2.5 shadow-[0_8px_24px_rgba(0,0,0,0.08)] backdrop-blur md:hidden"
+      style={{ paddingTop: "max(0.625rem, env(safe-area-inset-top))" }}
     >
       <a
         href={business.phoneHref}

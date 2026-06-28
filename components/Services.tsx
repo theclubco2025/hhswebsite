@@ -1,38 +1,44 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Scissors, Trees, Sparkles, Leaf, CalendarClock, Wrench, ArrowRight } from "lucide-react";
+import { Scissors, Trees, Sparkles, Leaf, CalendarClock, Wrench } from "lucide-react";
 
 const services = [
   {
     icon: Scissors,
     title: "Lawn Maintenance",
-    desc: "Consistent, precise mowing and edging that keeps your property looking sharp all season long."
+    desc: "Consistent, precise mowing and edging that keeps your property looking sharp all season long.",
+    tone: "from-[#3c1f78] to-[#5B21B6]"
   },
   {
     icon: Leaf,
     title: "Weed Whacking",
-    desc: "Detailed trimming along fences, beds, and tight edges for a clean, finished look."
+    desc: "Detailed trimming along fences, beds, and tight edges for a clean, finished look.",
+    tone: "from-[#4a2491] to-[#7C3AED]"
   },
   {
     icon: Trees,
     title: "Tree Trimming",
-    desc: "Safe, professional trimming that protects your property and keeps trees healthy."
+    desc: "Safe, professional trimming that protects your property and keeps trees healthy.",
+    tone: "from-[#2d1660] to-[#5B21B6]"
   },
   {
     icon: Sparkles,
     title: "Property Cleanup",
-    desc: "Debris removal and tidy-up service that restores your property's curb appeal."
+    desc: "Debris removal and tidy-up service that restores your property's curb appeal.",
+    tone: "from-[#5B21B6] to-[#8B5CF6]"
   },
   {
     icon: CalendarClock,
     title: "Seasonal Maintenance",
-    desc: "Spring and fall property prep so your home is ready for every season."
+    desc: "Spring and fall property prep so your home is ready for every season.",
+    tone: "from-[#371c6e] to-[#6D28D9]"
   },
   {
     icon: Wrench,
-    title: "Additional Services",
-    desc: "General property services tailored to your home's specific needs. Ask Blake for details."
+    title: "General Property Services",
+    desc: "Tailored property work outside the standard list. Ask Blake what he can take care of.",
+    tone: "from-[#4a2491] to-[#5B21B6]"
   }
 ];
 
@@ -58,30 +64,35 @@ export default function Services() {
           </p>
         </motion.div>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (
-            <motion.div
+            <motion.a
+              href="#quote"
               key={s.title}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              whileHover={{ y: -6 }}
-              className="group rounded-2xl bg-white p-7 shadow-glass transition-shadow hover:shadow-premium"
+              transition={{ duration: 0.5, delay: i * 0.07 }}
+              className="group relative isolate flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-2xl shadow-glass transition-shadow duration-300 hover:shadow-premium"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-purple-gradient text-white">
-                <s.icon className="h-6 w-6" />
-              </div>
-              <h3 className="mt-5 font-heading text-xl font-semibold text-ink">{s.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink/60">{s.desc}</p>
-              <a
-                href="#quote"
-                className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary"
+              {/* Photo placeholder layer — swap for real jobsite photography */}
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${s.tone} transition-transform duration-500 ease-out group-hover:scale-105`}
               >
-                Get Quote
-                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-              </a>
-            </motion.div>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_15%,rgba(255,255,255,0.18),transparent_45%)]" />
+                <s.icon className="absolute right-5 top-5 h-9 w-9 text-white/15" strokeWidth={1.25} />
+              </div>
+
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent" />
+
+              <div className="relative z-10 p-6">
+                <h3 className="font-heading text-2xl font-semibold text-white">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/75">{s.desc}</p>
+                <span className="mt-4 inline-flex items-center text-xs font-semibold uppercase tracking-wider text-white/0 transition-colors duration-300 group-hover:text-white/90">
+                  Request This Service &rarr;
+                </span>
+              </div>
+            </motion.a>
           ))}
         </div>
       </div>
