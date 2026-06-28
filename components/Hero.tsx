@@ -78,23 +78,13 @@ export default function Hero() {
           </a>
           <a
             href={business.phoneHref}
-            className="flex w-full items-center justify-center gap-2 rounded-full border border-white/25 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur transition-all duration-300 ease-out hover:bg-white/10 sm:w-auto sm:px-8 sm:py-4 sm:text-base"
+            className="flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-ink shadow-premium transition-all duration-300 ease-out hover:scale-105 hover:bg-white/90 sm:w-auto sm:px-8 sm:py-4 sm:text-base"
           >
-            <Phone className="h-4 w-4" />
+            <Phone className="h-4 w-4 text-primary" />
             Call Blake &mdash; {business.phoneDisplay}
           </a>
         </motion.div>
       </div>
-
-      <motion.div
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-white/40"
-      >
-        <div className="h-9 w-5 rounded-full border border-white/30 p-1">
-          <div className="h-1.5 w-1.5 rounded-full bg-white/60" />
-        </div>
-      </motion.div>
     </section>
   );
 }
