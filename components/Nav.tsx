@@ -39,15 +39,8 @@ export default function Nav() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-2.5 md:py-3">
         <a href="#" className="flex items-center gap-2.5">
-          <span className="relative flex h-12 w-12 overflow-hidden rounded-lg bg-white shadow-sm">
-            <Image
-              src="/logo.jpeg"
-              alt="Harmony Home Services"
-              fill
-              sizes="48px"
-              style={{ objectFit: "cover", objectPosition: "50% 34%", transform: "scale(2.3)" }}
-              priority
-            />
+          <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-lg bg-white shadow-sm">
+            <Image src="/logo.jpeg" alt="Harmony Home Services" width={40} height={40} className="h-full w-full object-cover" priority />
           </span>
           <span
             className={`hidden font-heading text-lg font-semibold tracking-tight sm:inline ${
