@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Phone, Menu, X } from "lucide-react";
+import { Phone, FileText, Menu, X } from "lucide-react";
 import { business } from "@/config/site";
 
 const links = [
@@ -31,19 +31,19 @@ export default function Nav() {
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className={`fixed left-0 right-0 top-16 z-50 border-b transition-all duration-500 ease-out md:top-0 ${
+      className={`fixed left-0 right-0 top-0 z-50 border-b transition-all duration-500 ease-out ${
         scrolled
           ? "glass border-primary/10 shadow-glass"
           : "border-white/10 bg-ink/45 backdrop-blur-md"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-2.5 md:py-3">
-        <a href="#" className="flex items-center gap-2.5">
-          <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-lg bg-white shadow-sm">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-2 sm:px-5 sm:py-2.5 md:py-3">
+        <a href="#" className="flex min-w-0 items-center gap-2 sm:gap-2.5">
+          <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white shadow-sm sm:h-10 sm:w-10">
             <Image src="/logo.jpeg" alt="Harmony Home Services" width={40} height={40} className="h-full w-full object-cover" priority />
           </span>
           <span
-            className={`hidden font-heading text-lg font-semibold tracking-tight sm:inline ${
+            className={`hidden truncate font-heading text-lg font-semibold tracking-tight sm:inline ${
               scrolled ? "text-ink" : "text-white"
             }`}
           >
@@ -69,13 +69,31 @@ export default function Nav() {
           </a>
         </div>
 
-        <button
-          aria-label="Toggle menu"
-          className={scrolled ? "text-ink md:hidden" : "text-white md:hidden"}
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        <div className="flex items-center gap-1.5 md:hidden">
+          <a
+            href={business.phoneHref}
+            aria-label="Call now"
+            className="flex items-center gap-1.5 rounded-full border border-primary/30 bg-white px-3 py-2 text-xs font-semibold text-primary shadow-sm"
+          >
+            <Phone className="h-3.5 w-3.5" />
+            <span className="hidden sm:inline">Call</span>
+          </a>
+          <a
+            href="#quote"
+            aria-label="Get a quote"
+            className="flex items-center gap-1.5 rounded-full bg-purple-gradient px-3 py-2 text-xs font-semibold text-white shadow-sm"
+          >
+            <FileText className="h-3.5 w-3.5" />
+            <span className="hidden sm:inline">Quote</span>
+          </a>
+          <button
+            aria-label="Toggle menu"
+            className={scrolled ? "ml-0.5 text-ink" : "ml-0.5 text-white"}
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
       {open && (

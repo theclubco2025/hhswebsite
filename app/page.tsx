@@ -7,7 +7,6 @@ import Gallery from "@/components/Gallery";
 import Reviews from "@/components/Reviews";
 import QuoteForm from "@/components/QuoteForm";
 import Footer from "@/components/Footer";
-import StickyMobileBar from "@/components/StickyMobileBar";
 
 export default function Home() {
   return (
@@ -21,7 +20,6 @@ export default function Home() {
       <Reviews />
       <QuoteForm />
       <Footer />
-      <StickyMobileBar />
     </main>
   );
 }
