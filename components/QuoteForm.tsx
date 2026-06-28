@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Phone, Loader2, CheckCircle2 } from "lucide-react";
+import { Phone, Loader2, CheckCircle2, ImagePlus } from "lucide-react";
 import { business } from "@/config/site";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -10,6 +10,7 @@ type Status = "idle" | "submitting" | "success" | "error";
 export default function QuoteForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [fileNames, setFileNames] = useState<string[]>([]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -27,6 +28,7 @@ export default function QuoteForm() {
       }
       setStatus("success");
       form.reset();
+      setFileNames([]);
     } catch {
       setErrorMsg("Sorry, submission failed. Please call us directly.");
       setStatus("error");
@@ -98,6 +100,28 @@ export default function QuoteForm() {
                   className="w-full rounded-xl border border-ink/10 bg-neutral px-4 py-3 text-sm text-ink outline-none focus:border-primary"
                   placeholder="Tell us more about your project..."
                 />
+              </div>
+
+              <div className="md:col-span-2">
+                <label className="mb-1.5 block text-sm font-medium text-ink/70">
+                  Photos (optional)
+                </label>
+                <label className="flex cursor-pointer items-center gap-3 rounded-xl border border-dashed border-ink/20 bg-neutral px-4 py-3.5 text-sm text-ink/60 transition-colors hover:border-primary hover:text-primary">
+                  <ImagePlus className="h-4 w-4" />
+                  {fileNames.length > 0
+                    ? `${fileNames.length} photo${fileNames.length > 1 ? "s" : ""} selected`
+                    : "Attach photos of the property or project (up to 5, 8MB each)"}
+                  <input
+                    type="file"
+                    name="photos"
+                    accept="image/*"
+                    multiple
+                    className="hidden"
+                    onChange={(e) =>
+                      setFileNames(Array.from(e.target.files ?? []).map((f) => f.name))
+                    }
+                  />
+                </label>
               </div>
 
               {status === "error" && (

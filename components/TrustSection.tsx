@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import AnimatedCounter from "./AnimatedCounter";
 
 const stats = [
-  { value: 24, suffix: "hr", label: "Average Response" },
-  { value: 100, suffix: "%", label: "Free Estimates" },
-  { value: 0, suffix: "", label: "Locally Owned", isText: true, display: "Local" },
-  { value: 5, suffix: "★", label: "Service Goal", isText: true, display: "★★★★★" }
+  { value: 24, suffix: "hr", label: "Average Response Time" },
+  { value: 0, suffix: "", label: "Free, No-Obligation Estimates", isText: true, display: "Free" },
+  { value: 0, suffix: "", label: "Owned & Operated by Blake Winn", isText: true, display: "Local" },
+  { value: 0, suffix: "", label: "Satisfaction Guaranteed", isText: true, display: "100%" }
 ];
 
 export default function TrustSection() {

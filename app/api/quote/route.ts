@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { quoteSchema } from "@/lib/validation";
 import { sendLeadEmail } from "@/lib/mail";
+import { parsePhotoUploads, UploadError } from "@/lib/formData";
 
 export async function POST(request: Request) {
   try {
@@ -16,6 +17,17 @@ export async function POST(request: Request) {
     if (!parsed.success) {
       return NextResponse.json({ error: "Please complete required fields." }, { status: 400 });
     }
+
+    let uploads;
+    try {
+      uploads = await parsePhotoUploads(formData);
+    } catch (e) {
+      if (e instanceof UploadError) {
+        return NextResponse.json({ error: e.message }, { status: 400 });
+      }
+      throw e;
+    }
+
     const txt = [
       "New Quote Request",
       "------------------",
@@ -24,9 +36,15 @@ export async function POST(request: Request) {
       `Service Address: ${parsed.data.address}`,
       `Email Address: ${parsed.data.email || "Not provided"}`,
       `Requested Service: ${parsed.data.service}`,
-      `Notes: ${parsed.data.notes || "Not provided"}`
+      `Notes: ${parsed.data.notes || "Not provided"}`,
+      `Photos Attached: ${uploads.length > 0 ? uploads.length : "None"}`
     ].join("\n");
-    await sendLeadEmail({ subject: "New Quote Request - Harmony Home Services", text: txt });
+
+    await sendLeadEmail({
+      subject: "New Quote Request - Harmony Home Services",
+      text: txt,
+      attachments: uploads.map((u) => ({ filename: u.filename, content: u.buffer }))
+    });
     return NextResponse.json({ ok: true });
   } catch {
     return NextResponse.json(

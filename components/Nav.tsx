@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Phone, Menu, X } from "lucide-react";
 import { business } from "@/config/site";
 
@@ -23,32 +24,36 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const linkColor = scrolled ? "text-ink/70 hover:text-primary" : "text-white/85 hover:text-white";
+
   return (
     <motion.header
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all ${
-        scrolled ? "glass shadow-glass" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 border-b transition-all ${
+        scrolled
+          ? "glass border-primary/10 shadow-glass"
+          : "border-white/10 bg-ink/45 backdrop-blur-md"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 md:py-4">
-        <a href="#" className="flex items-center gap-2">
-          <span className="font-heading text-2xl font-semibold tracking-tight text-primary md:text-3xl">
-            Harmony
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-2.5 md:py-3">
+        <a href="#" className="flex items-center gap-2.5">
+          <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-lg bg-white shadow-sm">
+            <Image src="/logo.jpeg" alt="Harmony Home Services" width={40} height={40} className="h-full w-full object-cover" priority />
           </span>
-          <span className="hidden text-xs font-medium uppercase tracking-[0.2em] text-ink/60 sm:inline">
-            Home Services
+          <span
+            className={`hidden font-heading text-lg font-semibold tracking-tight sm:inline ${
+              scrolled ? "text-ink" : "text-white"
+            }`}
+          >
+            Harmony Home Services
           </span>
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-sm font-medium text-ink/70 transition-colors hover:text-primary"
-            >
+            <a key={l.href} href={l.href} className={`text-sm font-medium transition-colors ${linkColor}`}>
               {l.label}
             </a>
           ))}
@@ -66,7 +71,7 @@ export default function Nav() {
 
         <button
           aria-label="Toggle menu"
-          className="text-ink md:hidden"
+          className={scrolled ? "text-ink md:hidden" : "text-white md:hidden"}
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}

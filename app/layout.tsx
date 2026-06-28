@@ -30,7 +30,7 @@ const jsonLd = {
   "@type": "LocalBusiness",
   name: "Harmony Home Services",
   founder: "Blake Winn",
-  telephone: "+1-530-334-6503",
+  telephone: "+1-530-409-6503",
   priceRange: "$$",
   areaServed: "Local Service Area",
   description:

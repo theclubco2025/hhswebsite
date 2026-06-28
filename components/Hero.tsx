@@ -9,15 +9,11 @@ const checklist = ["Lawn Maintenance", "Weed Whacking", "Tree Trimming", "Proper
 export default function Hero() {
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden bg-ink">
-      {/* HERO PROPERTY IMAGE placeholder */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(124,58,237,0.35),transparent_55%)]" />
-        <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-ink via-[#1a1024] to-ink">
-          <span className="text-sm uppercase tracking-[0.3em] text-white/20">
-            HERO PROPERTY IMAGE
-          </span>
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/40" />
+      {/* Swap this layer for a real property photo (object-cover) when available */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#1a1024] via-ink to-[#150c1f]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_15%,rgba(124,58,237,0.32),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_75%,rgba(91,33,182,0.28),transparent_55%)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-transparent" />
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-5xl px-5 pt-24 text-center md:pt-16">
