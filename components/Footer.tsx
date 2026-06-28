@@ -7,8 +7,14 @@ export default function Footer() {
     <footer className="bg-ink py-12 text-white/60">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-5 text-center md:flex-row md:justify-between md:text-left">
         <div className="flex items-center gap-3">
-          <span className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-lg bg-white">
-            <Image src="/logo.jpeg" alt="Harmony Home Services" width={48} height={48} className="h-full w-full object-cover" />
+          <span className="relative flex h-14 w-14 overflow-hidden rounded-lg bg-white">
+            <Image
+              src="/logo.jpeg"
+              alt="Harmony Home Services"
+              fill
+              sizes="56px"
+              style={{ objectFit: "cover", objectPosition: "50% 34%", transform: "scale(2.3)" }}
+            />
           </span>
           <div>
             <p className="font-heading text-2xl font-semibold text-white">{business.officialName}</p>

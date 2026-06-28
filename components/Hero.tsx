@@ -16,6 +16,9 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-transparent" />
       </div>
 
+      {/* Smooth blend into the section below */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white to-transparent" />
+
       <div className="relative z-10 mx-auto w-full max-w-5xl px-5 pt-24 text-center md:pt-16">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
@@ -68,14 +71,14 @@ export default function Hero() {
         >
           <a
             href="#quote"
-            className="group flex w-full items-center justify-center gap-2 rounded-full bg-purple-gradient px-8 py-4 text-base font-semibold text-white shadow-premium transition-transform hover:scale-105 sm:w-auto"
+            className="group flex w-full items-center justify-center gap-2 rounded-full bg-purple-gradient px-8 py-4 text-base font-semibold text-white shadow-premium transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl sm:w-auto"
           >
             Get Free Quote
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
           <a
             href={business.phoneHref}
-            className="flex w-full items-center justify-center gap-2 rounded-full border border-white/25 px-8 py-4 text-base font-semibold text-white backdrop-blur transition-colors hover:bg-white/10 sm:w-auto"
+            className="flex w-full items-center justify-center gap-2 rounded-full border border-white/25 px-8 py-4 text-base font-semibold text-white backdrop-blur transition-all duration-300 ease-out hover:bg-white/10 sm:w-auto"
           >
             <Phone className="h-4 w-4" />
             Call Blake &mdash; {business.phoneDisplay}

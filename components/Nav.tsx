@@ -31,7 +31,7 @@ export default function Nav() {
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 right-0 z-50 border-b transition-all ${
+      className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-500 ease-out ${
         scrolled
           ? "glass border-primary/10 shadow-glass"
           : "border-white/10 bg-ink/45 backdrop-blur-md"
@@ -39,8 +39,15 @@ export default function Nav() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-2.5 md:py-3">
         <a href="#" className="flex items-center gap-2.5">
-          <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-lg bg-white shadow-sm">
-            <Image src="/logo.jpeg" alt="Harmony Home Services" width={40} height={40} className="h-full w-full object-cover" priority />
+          <span className="relative flex h-12 w-12 overflow-hidden rounded-lg bg-white shadow-sm">
+            <Image
+              src="/logo.jpeg"
+              alt="Harmony Home Services"
+              fill
+              sizes="48px"
+              style={{ objectFit: "cover", objectPosition: "50% 34%", transform: "scale(2.3)" }}
+              priority
+            />
           </span>
           <span
             className={`hidden font-heading text-lg font-semibold tracking-tight sm:inline ${

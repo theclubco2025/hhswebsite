@@ -38,6 +38,7 @@ export default function QuoteForm() {
   return (
     <section id="quote" className="relative overflow-hidden bg-ink py-20 md:py-28">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(124,58,237,0.25),transparent_55%)]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white/10 to-transparent" />
       <div className="relative mx-auto max-w-3xl px-5">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -82,7 +83,7 @@ export default function QuoteForm() {
                 <select
                   name="service"
                   required
-                  className="w-full rounded-xl border border-ink/10 bg-neutral px-4 py-3 text-sm text-ink outline-none focus:border-primary"
+                  className="w-full rounded-xl border border-ink/10 bg-neutral px-4 py-3 text-sm text-ink outline-none transition-colors duration-200 focus:border-primary"
                 >
                   <option value="">Select a service</option>
                   {business.services.map((s) => (
@@ -97,7 +98,7 @@ export default function QuoteForm() {
                 <textarea
                   name="notes"
                   rows={4}
-                  className="w-full rounded-xl border border-ink/10 bg-neutral px-4 py-3 text-sm text-ink outline-none focus:border-primary"
+                  className="w-full rounded-xl border border-ink/10 bg-neutral px-4 py-3 text-sm text-ink outline-none transition-colors duration-200 focus:border-primary"
                   placeholder="Tell us more about your project..."
                 />
               </div>
@@ -132,7 +133,7 @@ export default function QuoteForm() {
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="flex w-full items-center justify-center gap-2 rounded-full bg-purple-gradient px-8 py-4 text-base font-semibold text-white shadow-premium transition-transform hover:scale-[1.02] disabled:opacity-60"
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-purple-gradient px-8 py-4 text-base font-semibold text-white shadow-premium transition-all duration-300 ease-out hover:scale-[1.02] hover:shadow-2xl disabled:opacity-60"
                 >
                   {status === "submitting" && <Loader2 className="h-4 w-4 animate-spin" />}
                   {status === "submitting" ? "Sending..." : "Get Free Quote"}
@@ -173,7 +174,7 @@ function Field({
         name={name}
         type={type}
         required={required}
-        className="w-full rounded-xl border border-ink/10 bg-neutral px-4 py-3 text-sm text-ink outline-none focus:border-primary"
+        className="w-full rounded-xl border border-ink/10 bg-neutral px-4 py-3 text-sm text-ink outline-none transition-colors duration-200 focus:border-primary"
       />
     </div>
   );
