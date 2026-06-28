@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-heading: "Cormorant Garamond", serif;
+  --font-body: "Inter", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: #111111;
+  background: #ffffff;
+}
+
+.glass {
+  backdrop-filter: blur(16px) saturate(160%);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #5b21b6 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
